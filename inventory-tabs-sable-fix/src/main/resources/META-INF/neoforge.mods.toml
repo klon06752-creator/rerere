@@ -1,0 +1,40 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId           = "invtabsfix"
+version         = "1.0.0"
+displayName     = "Inventory Tabs – Sable Physics Fix"
+description     = '''
+Fixes Inventory Tabs not detecting container GUIs when blocks are
+part of a Sable (Create Aeronautics) contraption.
+Intercepts the block-lookup used by Inventory Tabs and redirects
+world-space queries through Sable's ContraptionWorld layer.
+'''
+logoFile        = ""
+
+[[dependencies.invtabsfix]]
+    modId       = "neoforge"
+    type        = "required"
+    versionRange = "[21.1,)"
+    ordering    = "NONE"
+    side        = "CLIENT"
+
+[[dependencies.invtabsfix]]
+    modId       = "inventorytabs"
+    type        = "required"
+    versionRange = "[0.1,)"
+    ordering    = "AFTER"
+    side        = "CLIENT"
+
+# Create Aeronautics / Sable – soft dependency
+[[dependencies.invtabsfix]]
+    modId       = "create_aeronautics"
+    type        = "optional"
+    versionRange = "[0.1,)"
+    ordering    = "AFTER"
+    side        = "CLIENT"
+
+[[mixins]]
+config = "invtabsfix.mixins.json"

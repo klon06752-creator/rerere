@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.28'
+}
+
+version = '1.0.0'
+group = 'com.example.invtabsfix'
+
+base {
+    archivesName = 'invtabs-sable-fix'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+neoForge {
+    version = '21.1.172'
+
+    mods {
+        invtabsfix {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    // Inventory Tabs mod (compileOnly — не включаем в jar, только для компиляции)
+    // Если есть локальный jar:
+    // compileOnly files('libs/inventorytabs-1.21.1-*.jar')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

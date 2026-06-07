@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.example.invtabsfix.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "invtabsfix.refmap.json",
+  "client": [
+    "MixinTabManager"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
